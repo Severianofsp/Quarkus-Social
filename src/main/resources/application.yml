@@ -1,0 +1,42 @@
+quarkus:
+  smallrye-openapi:
+    info-version: 1.0.0
+    info-description: API To Manage Social Network
+    info-terms-of-service: Social Network API
+    info-contact-email: severianofsp@gmail.com
+    info-contact-name: Felipe Severiano
+    info-contact-url: https://github.com/Severianofsp
+    info-license-name: Apache 2.0
+    info-license-url: https://www.apache.org/licenses/LICENSE-2.0.html
+
+"%dev":
+  quarkus:
+    datasource:
+      db-kind: postgresql
+      username: postgres
+      password: postgres
+      jdbc:
+        url: jdbc:postgresql://localhost:5434/quarkus-social
+        max-size: 16
+    swagger-ui:
+      always-include: true
+    smallrye-openapi:
+      info-title: API Quarkus Social (development)
+
+"%test":
+  quarkus:
+    datasource:
+      db-kind: h2
+      username: sa
+      password: sa
+      jdbc:
+        url: jdbc:h2:mem:quarkus-social
+        max-size: 16
+    hibernate-orm:
+      database:
+        generation: drop-and-create
+      log:
+        sql: true
+        format-sql: true
+    smallrye-openapi:
+      info-title: API Quarkus Social (test)
